@@ -304,14 +304,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* ----- Parallax effect for hero (desktop only) ----- */
-  const hero = document.querySelector('.hero');
-  if (hero && window.innerWidth > 768) {
-    window.addEventListener('scroll', () => {
-      const scrolled = window.pageYOffset;
-      const rate = scrolled * 0.3;
-      hero.style.backgroundPositionY = `calc(50% - ${rate}px)`;
-    }, { passive: true });
-  }
+  /* ----- Hero carousel autoplay ----- */
+  (function initHeroCarousel() {
+    const slides = document.querySelectorAll('.hero-carousel__slide');
+    if (slides.length < 2) return;
+    let current = 0;
+
+    setInterval(() => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 5000);
+  })();
 
 });

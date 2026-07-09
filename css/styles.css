@@ -219,24 +219,12 @@ ul { list-style: none; }
   box-shadow: var(--shadow-md);
 }
 
-.header.scrolled .logo__title {
-  color: var(--color-primary);
-}
-
-.header.scrolled .logo__subtitle {
-  color: var(--color-text-light);
-}
-
 .header.scrolled .nav__link {
   color: var(--color-text);
 }
 
 .header.scrolled .nav__link:hover,
 .header.scrolled .nav__link.active {
-  color: var(--color-primary);
-}
-
-.header.scrolled .logo__icon {
   color: var(--color-primary);
 }
 
@@ -254,32 +242,10 @@ ul { list-style: none; }
   z-index: 1001;
 }
 
-.logo__icon {
-  font-size: 1.8rem;
-  color: var(--color-white);
-  transition: var(--transition);
-}
-
-.logo__text {
-  display: flex;
-  flex-direction: column;
-}
-
-.logo__title {
-  font-size: 1.2rem;
-  font-weight: 800;
-  color: var(--color-white);
-  letter-spacing: 0.5px;
-  line-height: 1.2;
-  transition: var(--transition);
-}
-
-.logo__subtitle {
-  font-size: 0.7rem;
-  font-weight: 500;
-  color: rgba(255,255,255,0.8);
-  letter-spacing: 0.3px;
-  transition: var(--transition);
+.logo__img {
+  height: 48px;
+  width: auto;
+  display: block;
 }
 
 /* ----- Navigation ----- */
@@ -386,16 +352,38 @@ ul { list-style: none; }
   display: flex;
   align-items: center;
   justify-content: center;
-  background:
-    linear-gradient(135deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.65) 100%),
-    url('../images/hero-bg.jpg') center/cover fixed;
   overflow: hidden;
+}
+
+.hero-carousel {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-carousel__slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+
+.hero-carousel__slide.active {
+  opacity: 1;
+}
+
+.hero-carousel__slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .hero__overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.3) 100%);
+  background:
+    linear-gradient(135deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.65) 100%),
+    radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.3) 100%);
   z-index: 1;
 }
 
@@ -1090,18 +1078,6 @@ ul { list-style: none; }
   padding-bottom: 50px;
 }
 
-.footer__brand .logo__title {
-  color: var(--color-white);
-}
-
-.footer__brand .logo__subtitle {
-  color: rgba(255,255,255,0.6);
-}
-
-.footer__brand .logo__icon {
-  color: var(--color-olive);
-}
-
 .footer__brand p {
   margin-top: 16px;
   font-size: 0.9rem;
@@ -1366,10 +1342,6 @@ ul { list-style: none; }
 
   .header.scrolled .nav__link {
     color: var(--color-text);
-  }
-
-  .hero {
-    background-attachment: scroll;
   }
 
   .hero__title {
