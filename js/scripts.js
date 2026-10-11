@@ -4,17 +4,6 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ----- Preloader ----- */
-  const preloader = document.getElementById('preloader');
-  if (preloader) {
-    window.addEventListener('load', () => {
-      preloader.classList.add('hidden');
-    });
-    setTimeout(() => {
-      preloader.classList.add('hidden');
-    }, 1500);
-  }
-
   /* ----- Header scroll effect ----- */
   const header = document.getElementById('header');
   let lastScroll = 0;
@@ -127,11 +116,13 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCounter();
     lightbox.classList.add('active');
     document.body.style.overflow = 'hidden';
+    lightboxClose.focus();
   }
 
   function closeLightbox() {
     lightbox.classList.remove('active');
     document.body.style.overflow = '';
+    if (galleryItems[currentIndex]) galleryItems[currentIndex].parentElement.focus();
   }
 
   function goToPrev() {
@@ -293,7 +284,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const target = document.querySelector(href);
       if (target) {
         e.preventDefault();
-        const headerOffset = 80;
+        const headerOffset = header.offsetHeight;
         const elementPosition = target.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
         window.scrollTo({
@@ -316,5 +307,74 @@ document.addEventListener('DOMContentLoaded', () => {
       slides[current].classList.add('active');
     }, 5000);
   })();
+
+  /* ----- Open / closed status (Europe/Madrid) ----- */
+  (function initOpenStatus() {
+    // Minutes from midnight; index = day of week (0 = Sunday)
+    const SCHEDULE = [
+      [],
+      [[480, 840], [990, 1170]],
+      [[480, 840], [990, 1170]],
+      [[480, 840], [990, 1170]],
+      [[480, 840], [990, 1170]],
+      [[480, 840], [990, 1170]],
+      [[510, 810]]
+    ];
+    const DAY_NAMES = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
+
+    const fmt = (mins) => `${String(Math.floor(mins / 60)).padStart(2, '0')}:${String(mins % 60).padStart(2, '0')}`;
+
+    function madridNow() {
+      const parts = new Intl.DateTimeFormat('en-GB', {
+        timeZone: 'Europe/Madrid',
+        weekday: 'short',
+        hour: '2-digit',
+        minute: '2-digit',
+        hourCycle: 'h23'
+      }).formatToParts(new Date());
+      const get = (type) => parts.find(p => p.type === type).value;
+      const day = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(get('weekday'));
+      return { day, mins: parseInt(get('hour'), 10) * 60 + parseInt(get('minute'), 10) };
+    }
+
+    function nextOpening(day, mins) {
+      for (let offset = 0; offset < 7; offset++) {
+        const d = (day + offset) % 7;
+        const slot = SCHEDULE[d].find(([open]) => offset > 0 || open > mins);
+        if (slot) {
+          const when = offset === 0 ? 'hoy' : offset === 1 ? 'mañana' : `el ${DAY_NAMES[d]}`;
+          return `Abre ${when} a las ${fmt(slot[0])}`;
+        }
+      }
+      return '';
+    }
+
+    function update() {
+      const { day, mins } = madridNow();
+      const current = SCHEDULE[day].find(([open, close]) => mins >= open && mins < close);
+      const isOpen = Boolean(current);
+
+      document.querySelectorAll('[data-open-status]').forEach(el => {
+        el.textContent = isOpen ? 'Abierto ahora' : 'Cerrado ahora';
+      });
+      document.querySelectorAll('[data-open-detail]').forEach(el => {
+        el.textContent = isOpen ? `Hasta las ${fmt(current[1])}` : nextOpening(day, mins);
+      });
+      document.querySelectorAll('[data-open-dot]').forEach(el => {
+        el.classList.toggle('is-open', isOpen);
+        el.classList.toggle('is-closed', !isOpen);
+      });
+      document.querySelectorAll('.schedule__row[data-days]').forEach(row => {
+        row.classList.toggle('is-today', row.dataset.days.split(',').includes(String(day)));
+      });
+    }
+
+    update();
+    setInterval(update, 60000);
+  })();
+
+  /* ----- Footer year ----- */
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 });

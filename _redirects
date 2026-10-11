@@ -1,2 +1,6 @@
+# Dominio principal: evita contenido duplicado en el subdominio de Netlify
+https://piensosjavi.netlify.app/*  https://piensosjavi.es/:splat  301!
+http://piensosjavi.netlify.app/*   https://piensosjavi.es/:splat  301!
+
 /sitemap.xml  /sitemap.xml  200
 /robots.txt  /robots.txt  200

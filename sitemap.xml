@@ -1,9 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://piensosjavi.es/</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-10-11</lastmod>
+    <image:image>
+      <image:loc>https://piensosjavi.es/images/og-image.jpg</image:loc>
+      <image:title>Tienda PIENSOS JAVI en Campohermoso</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://piensosjavi.es/images/tienda/tienda-01.webp</image:loc>
+      <image:title>Fachada de la tienda de piensos PIENSOS JAVI en Campohermoso, Níjar</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://piensosjavi.es/images/tienda/tienda-02.webp</image:loc>
+      <image:title>Plantas y plantones a la entrada de PIENSOS JAVI</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://piensosjavi.es/images/tienda/tienda-03.webp</image:loc>
+      <image:title>Interior de la tienda con suministros agrícolas y ganaderos</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://piensosjavi.es/images/logo-240.webp</image:loc>
+      <image:title>Logotipo de PIENSOS JAVI</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://piensosjavi.es/images/productos/producto-01.webp</image:loc>
+      <image:title>Pienso Ownat Classic Light para perros</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://piensosjavi.es/images/productos/producto-02.webp</image:loc>
+      <image:title>Pienso Ownat Classic Complet para perros adultos</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://piensosjavi.es/images/productos/producto-03.webp</image:loc>
+      <image:title>Pienso Ownat Classic Junior para cachorros</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://piensosjavi.es/images/productos/producto-04.webp</image:loc>
+      <image:title>Pienso Ownat Classic de cordero y arroz para perros</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://piensosjavi.es/images/productos/producto-05.webp</image:loc>
+      <image:title>Cereal en grano a granel</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://piensosjavi.es/images/productos/producto-06.webp</image:loc>
+      <image:title>Cereal en grano en saco de arpillera</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://piensosjavi.es/images/productos/producto-07.webp</image:loc>
+      <image:title>Pienso Ortín para conejos</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://piensosjavi.es/images/productos/producto-08.webp</image:loc>
+      <image:title>Mezcla de cereales Campo y Sol de Piensos Ortín</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://piensosjavi.es/images/productos/producto-09.webp</image:loc>
+      <image:title>Pienso Ortín para gallinas y pollos</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://piensosjavi.es/images/productos/producto-10.webp</image:loc>
+      <image:title>Saco de pienso Promir para ganado</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://piensosjavi.es/images/productos/producto-11.webp</image:loc>
+      <image:title>Pienso Purina Friskies para gatos</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://piensosjavi.es/images/productos/producto-12.webp</image:loc>
+      <image:title>Pienso Golden Cat de pollo para gatos</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://piensosjavi.es/images/productos/producto-13.webp</image:loc>
+      <image:title>Pienso Golden Menú Selección para perros</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://piensosjavi.es/images/productos/producto-14.webp</image:loc>
+      <image:title>Pienso Fenómeno Menú Especial para perros de caza</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://piensosjavi.es/images/productos/producto-15.webp</image:loc>
+      <image:title>Pienso Dog#1 para cachorros de pollo, ternera y huevo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://piensosjavi.es/images/productos/producto-16.webp</image:loc>
+      <image:title>Pienso Purina Friskies Junior para cachorros</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://piensosjavi.es/images/productos/producto-17.webp</image:loc>
+      <image:title>Pienso GranKam de alta energía para perros</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://piensosjavi.es/images/productos/producto-18.webp</image:loc>
+      <image:title>Pienso Ortín Premium para perros adultos</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://piensosjavi.es/images/productos/producto-19.webp</image:loc>
+      <image:title>Pienso Ortín Premium Junior para cachorros</image:title>
+    </image:image>
   </url>
 </urlset>
